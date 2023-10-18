@@ -2,6 +2,7 @@ let firstRun = true
 let eyeImg;
 
 let Pupil = [];
+let threeBalls = [];
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
@@ -45,6 +46,15 @@ stroke(strokeColor)
 
 
 if (firstRun){
+   threeBalls.push(loadImage('balls_0.png'));
+   threeBalls.push(loadImage('balls_1.png'));
+   threeBalls.push(loadImage('balls_2.png'));
+   threeBalls.push(loadImage('balls_3.png'));
+   threeBalls.push(loadImage('balls_4.png'));
+   threeBalls.push(loadImage('balls_5.png'));
+   threeBalls.push(loadImage('balls_6.png'));
+   
+
    rectMode(CENTER);
    eyeImg = loadImage('eye.png');
 
@@ -66,13 +76,22 @@ if (firstRun){
    Pupil.push(loadImage('Pupil_15.png'));
    Pupil.push(loadImage('Pupil_16.png'));
    Pupil.push(loadImage('Pupil_17.png'));
+
    
    
-  
+   
 
 
    firstRun = false
 }
+
+var BassFrame = int(map(drum, 0,100,0,6));
+
+console.log(BassFrame);
+push();
+image(threeBalls[BassFrame],170,98)
+pop();
+
 
 image(eyeImg, 250, 400)
 
@@ -83,6 +102,7 @@ console.log(DrumFrame);
 push();
 image(Pupil[DrumFrame],480,575)
 pop();
+
 
 
 
