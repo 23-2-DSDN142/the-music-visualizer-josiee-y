@@ -1,8 +1,13 @@
 let firstRun = true
 let eyeImg;
-
 let Pupil = [];
-let threeBalls = [];
+let Effects = [];
+let discoBalls = [];
+let smallStar1 = [];
+let smallStar2 = [];
+let bigStar1 = [];
+let bigStar2 = [];
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
@@ -26,8 +31,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   
 
-   let redColor = color(205, 60, 72);
-   let purpleColor = color(162, 98, 177);
+   let redColor = color(250, 80, 134 ); //205, 60, 72    232, 23, 40 
+   let purpleColor = color(162, 98, 177); //162, 98, 177  185, 84, 209
+   let darkredColor = color(176, 32, 44) // 209, 42, 56
 
    let vocalLerpNumber = map(vocal, 0, 100, 0,1);
    let vocalColor = lerpColor(purpleColor,redColor,vocalLerpNumber)
@@ -38,7 +44,7 @@ let sizeofBlock = 1000;
 
 for(let i = 0; i <sizeofBlock; i++){
 let gradenAmount = map(i,0,sizeofBlock,0,1)
-let strokeColor = lerpColor(vocalColor,redColor,gradenAmount)
+let strokeColor = lerpColor(vocalColor,darkredColor,gradenAmount)
 
 stroke(strokeColor)
   line(0,100+i, width, 100+i)
@@ -46,14 +52,13 @@ stroke(strokeColor)
 
 
 if (firstRun){
-   threeBalls.push(loadImage('balls_0.png'));
-   threeBalls.push(loadImage('balls_1.png'));
-   threeBalls.push(loadImage('balls_2.png'));
-   threeBalls.push(loadImage('balls_3.png'));
-   threeBalls.push(loadImage('balls_4.png'));
-   threeBalls.push(loadImage('balls_5.png'));
-   threeBalls.push(loadImage('balls_6.png'));
-   
+   discoBalls.push(loadImage('Balls_0.png'));
+   discoBalls.push(loadImage('Balls_1.png'));
+   discoBalls.push(loadImage('Balls_2.png'));
+   discoBalls.push(loadImage('Balls_3.png'));
+   discoBalls.push(loadImage('Balls_4.png'));
+   discoBalls.push(loadImage('Balls_5.png'));
+
 
    rectMode(CENTER);
    eyeImg = loadImage('eye.png');
@@ -77,30 +82,117 @@ if (firstRun){
    Pupil.push(loadImage('Pupil_16.png'));
    Pupil.push(loadImage('Pupil_17.png'));
 
-   
-   
+   Effects.push(loadImage('effects_0.png'));
+   Effects.push(loadImage('effects_1.png'));
+   Effects.push(loadImage('effects_2.png'));
+   Effects.push(loadImage('effects_3.png'));
+   Effects.push(loadImage('effects_4.png'));
+   Effects.push(loadImage('effects_5.png'));
+   Effects.push(loadImage('effects_6.png'));
+   Effects.push(loadImage('effects_7.png'));
+   Effects.push(loadImage('effects_8.png'));
+
+   smallStar1.push(loadImage('smallStar1_0.png'));
+   smallStar1.push(loadImage('smallStar1_1.png'));
+   smallStar1.push(loadImage('smallStar1_2.png'));
+   smallStar1.push(loadImage('smallStar1_3.png'));
+   smallStar1.push(loadImage('smallStar1_4.png'));
+   smallStar1.push(loadImage('smallStar1_5.png'));
+   //smallStar1.push(loadImage('smallStar1_6.png'));
    
 
+   smallStar2.push(loadImage('smallStar2_0.png'));
+   smallStar2.push(loadImage('smallStar2_1.png'));
+   smallStar2.push(loadImage('smallStar2_2.png'));
+   smallStar2.push(loadImage('smallStar2_3.png'));
+   smallStar2.push(loadImage('smallStar2_4.png'));
+   smallStar2.push(loadImage('smallStar2_5.png'));
+   //smallStar2.push(loadImage('smallStar2_6.png'));
+
+   bigStar1.push(loadImage('bigStar1_0.png'));
+   bigStar1.push(loadImage('bigStar1_1.png'));
+   bigStar1.push(loadImage('bigStar1_2.png'));
+   bigStar1.push(loadImage('bigStar1_3.png'));
+   bigStar1.push(loadImage('bigStar1_4.png'));
+   bigStar1.push(loadImage('bigStar1_5.png'));
+   //bigStar1.push(loadImage('bigStar1_6.png'));
+
+   bigStar2.push(loadImage('bigStar1_0.png'));
+   bigStar2.push(loadImage('bigStar1_1.png'));
+   bigStar2.push(loadImage('bigStar1_2.png'));
+   bigStar2.push(loadImage('bigStar1_3.png'));
+   bigStar2.push(loadImage('bigStar1_4.png'));
+   bigStar2.push(loadImage('bigStar1_5.png'));
+   //bigStar2.push(loadImage('bigStar1_6.png'));
 
    firstRun = false
 }
 
-var BassFrame = int(map(drum, 0,100,0,6));
-
-console.log(BassFrame);
-push();
-image(threeBalls[BassFrame],170,98)
-pop();
-
-
-image(eyeImg, 250, 400)
-
-
-var DrumFrame = int(map(drum, 0, 90,0,16));
+var DrumFrame = int(map(drum,0,100,0,8));
 
 console.log(DrumFrame);
 push();
-image(Pupil[DrumFrame],480,575)
+scale(1.1);
+image(Effects[DrumFrame],100,390)
+pop();
+
+var DrumFrame = int(map(drum,0,100,0,4));
+
+console.log(DrumFrame);
+push();
+scale(1.1);
+image(discoBalls[DrumFrame],60,88)
+pop();
+
+
+image(eyeImg, 220, 400)
+
+
+
+var DrumFrame = int(map(drum, 0, 100,0,11));
+
+console.log(DrumFrame);
+push();
+image(Pupil[DrumFrame],450,575)
+pop();
+
+
+var BassFrame = int(map(bass,0,100,0,5));
+
+console.log(BassFrame);
+push();
+scale(1.1);
+image(smallStar1[BassFrame],530,268)
+pop();
+
+
+
+var BassFrame = int(map(bass,0,100,0,5));
+
+console.log(BassFrame);
+push();
+scale(1.1);
+image(smallStar2[BassFrame],990,130)
+pop();
+
+
+
+var BassFrame = int(map(bass,0,100,0,5));
+
+console.log(BassFrame);
+push();
+scale(1.1);
+image(bigStar1[BassFrame],710,80)
+pop();
+
+
+
+var BassFrame = int(map(bass,0,100,0,5));
+
+console.log(BassFrame);
+push();
+scale(1.1);
+image(bigStar2[BassFrame],35,230)
 pop();
 
 
