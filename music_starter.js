@@ -31,12 +31,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   
 
-   let redColor = color(250, 80, 134 ); //205, 60, 72    232, 23, 40 
+   let pinkColor = color(250, 80, 134 ); //205, 60, 72    232, 23, 40 
    let purpleColor = color(162, 98, 177); //162, 98, 177  185, 84, 209
    let darkredColor = color(176, 32, 44) // 209, 42, 56
 
    let vocalLerpNumber = map(vocal, 0, 100, 0,1);
-   let vocalColor = lerpColor(purpleColor,redColor,vocalLerpNumber)
+   let vocalColor = lerpColor(purpleColor,pinkColor,vocalLerpNumber)
 
 strokeWeight(5)
 
@@ -81,6 +81,7 @@ if (firstRun){
    Pupil.push(loadImage('Pupil_15.png'));
    Pupil.push(loadImage('Pupil_16.png'));
    Pupil.push(loadImage('Pupil_17.png'));
+   Pupil.push(loadImage('Pupil_18.png'));
 
    Effects.push(loadImage('effects_0.png'));
    Effects.push(loadImage('effects_1.png'));
